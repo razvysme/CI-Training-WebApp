@@ -27,6 +27,8 @@
 	let q2;
 	let a1;
 	let a2;
+	let radioOpt1;
+	let radioOpt2;
 
 	let totalTimeDisplay = "loading...";
 	let currTimeDisplay = "0:00:00";
@@ -66,11 +68,12 @@
 
 		a2 = audioDB[trackIndex].a2.map((answer, index) => ({
 				value: (index).toString(), label: answer}));
+		radioOpt1 = a1[0].value;
+		radioOpt2 = a2[0].value;
 	}
 	
 
-	let radioOpt1 = a1[0].value;
-	let radioOpt2 = a2[0].value;
+
 
 	const loadTrack = () => {
 		console.log(trackIndex);
