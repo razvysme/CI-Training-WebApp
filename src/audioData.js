@@ -1,230 +1,318 @@
+
+const hosting = "https://d3spngajmc7mtz.cloudfront.net/";
+
 export const audioData = [
+    {
+        name: "Imagine",
+        lesson: "Lektion 1",
+        artist: "John Lenon",
+        url:  `${hosting}New%20Lessons/01%20LESSON.mp3`,
+        cover: `${hosting}img/1.jpeg`,
+        q1: "Hvem har John Lennon skrevet Imagine sammen med?",
+        a1: ["Paul McCartney", "Yoko Ono", "Bob Dylan"],
+        c1: "Yoko Ono",
+        q2: "Hvilken slags orkester er med i baggrunden i sangen?",
+        a2: ["Strygerorkester", "Blæserorkester", "Kor"],
+        c2: "Strygerorkester"
+    },
+    {
+        name: "Imagine",
+        lesson: "Lektion 2",
+        artist: "John Lenon",
+        url:  `${hosting}New%20Lessons/02%20LESSON.mp3`,
+        cover: `${hosting}img/1.jpeg`,
+        q1: "Hvor mange omkvæd er der i Imagine?",
+        a1: ["En", "To", "Tre"],
+        c1: "Tre",
+        q2: "I introen spiller klaveret nogenlunde det samme som i…",
+        a2: ["Vers", "Omkvæd", "B-stykke"],
+        c2: "Vers"
+    },
+    {
+        name: "Imagine",
+        lesson: "Lektion 3",
+        artist: "John Lenon",
+        url:  `${hosting}New%20Lessons/03%20LESSON.mp3`,
+        cover: `${hosting}img/1.jpeg`,
+        q1: "Hvem spiller klaveret på Imagine?",
+        a1: ["Yoko Ono", "John Lennon", "Keith Jarrett"],
+        c1: "John Lennon",
+        q2: "Fra hvilket orkester kommer strygerne der spiller på Imagine?",
+        a2: ["Chicago Philharmonic", "London Symphony Orchestra", "New York Philharmonic"],
+        c2: "New York Philharmonic"
+    },
+    {
+        name: "Imagine",
+        lesson: "Lektion 4",
+        artist: "John Lenon",
+        url:  `${hosting}New%20Lessons/04%20LESSON.mp3`,
+        cover: `${hosting}img/1.jpeg`,
+        q1: "Hvor mange toner synger John Lennon på i det meste af versene?",
+        a1: ["Tre", "Fire", "Fem"],
+        c1: "Tre",
+        q2: "Er der andre sangere end John Lennon med på Imagine?",
+        a2: ["Ja", "Nej"],
+        c2: "Nej"
+    },
+    {
+        name: "Forårsdag",
+        lesson: "Lektion 1",
+        artist: "Anne Linnet",
+        url:  `${hosting}New%20Lessons/05%20LESSON.mp3`,
+        cover: `${hosting}img/2.png`,
+        q1: "I hvilket år skrev Anne Linnet Forårsdag?",
+        a1: ["1970", "1980", "1988"],
+        c1: "1970",
+        q2: "Hvor mange sange har Anne Linnet med i Højskolesangbogen?",
+        a2: ["To", "Fire", "Fem"],
+        c2: "Fire"
+    },
+    {
+        name: "Forårsdag",
+        lesson: "Lektion 2",
+        artist: "Anne Linnet",
+        url:  `${hosting}New%20Lessons/06%20LESSON.mp3`,
+        cover: `${hosting}img/2.png`,
+        q1: "Hvor mange omkvæd er der i Forårsdag?",
+        a1: ["Null", "To", "Fire"],
+        c1: "Null",
+        q2: "Hvilket instrument spiller en lille solo i instrumental-stykket?",
+        a2: ["Fløjte", "Guitar", "Synthesizer"],
+        c2: "Synthesizer"
+    },
+    {
+        name: "Forårsdag",
+        lesson: "Lektion 3",
+        artist: "Anne Linnet",
+        url:  `${hosting}New%20Lessons/07%20LESSON.mp3`,
+        cover: `${hosting}img/2.png`,
+        q1: "Hvilket instrument er det bærende i sangen – især i starten?",
+        a1: ["Klaver", "Guitar", "Trommer"],
+        c1: "Guitar",
+        q2: "Hvilken slags trommer spiller med på sangen?",
+        a2: ["Trommesæt", "Trommemaskine", "Conga-trommer"],
+        c2: "Trommemaskine"
+    },
+    {
+        name: "Forårsdag",
+        lesson: "Lektion 4",
+        artist: "Anne Linnet",
+        url:  `${hosting}New%20Lessons/08%20LESSON.mp3`,
+        cover: `${hosting}img/2.png`,
+        q1: "Hvor mange linjer er der i et vers i Forårsdag?",
+        a1: ["To", "Fire", "Sex"],
+        c1: "Fire",
+        q2: "I hvilke to vers i Forårsdag er teksten identisk?",
+        a2: ["Første og tredje", "Tredje og sidste", "Første og sidste"],
+        c2: "Første og sidste"
+    },
+    {
+        name: "Papirsklip",
+        lesson: "Lektion 1",
+        artist: "Kim Larsen",
+        url:  `${hosting}New%20Lessons/09%20LESSON.mp3`,
+        cover: `${hosting}img/3.png`,
+        q1: "I hvilket år blev Papirsklip udgivet?",
+        a1: ["1973", "1983", "1993"],
+        c1: "1983",
+        cover: `${hosting}img/3.png`,
+        a2: ["Billy Joel", "Elton John", "Frank Sinatra"],
+        c2: "Elton John"
+    },
+    {
+        name: "Papirsklip",
+        lesson: "Lektion 2",
+        artist: "Kim Larsen",
+        url:  `${hosting}New%20Lessons/10%20LESSON.mp3`,
+        cover: `${hosting}img/3.png`,
+        q1: "Papirsklip har en musikalsk form der er meget typisk for en…",
+        a1: ["Jazz-standard", "Popsang", "Salme"],
+        c1: "Popsang",
+        q2: "Hvor længe varer det fra Papirsklip starter til Kim Larsen begynder at synge?",
+        a2: ["10 sekunder", "15 sekunder", "23 sekunder"],
+        c2: "23 sekunder"
+    },
+    {
+        name: "Papirsklip",
+        lesson: "Lektion 3",
+        artist: "Kim Larsen",
+        url:  `${hosting}New%20Lessons/11%20LESSON.mp3`,
+        cover: `${hosting}img/3.png`,
+        q1: "Hvilket af disse instrumenter spiller med i Papirsklip?",
+        a1: ["Vibrafon", "Saxofon", "Harmonika"],
+        c1: "Harmonika",
+        q2: "Hvilket instrument spiller også med i Papirsklip?",
+        a2: ["Cello", "Synthesizer", "Violin"],
+        c2: "Synthesizer"
+    },
+    {
+        name: "Papirsklip",
+        lesson: "Lektion 4",
+        artist: "Kim Larsen",
+        url:  `${hosting}New%20Lessons/12%20LESSON.mp3`,
+        cover: `${hosting}img/3.png`,
+        q1: "Hvilken skuespiller spiller Susan Himmelblå i filmen Midt om Natten?",
+        a1: ["Birgitte Raaberg", "Kirsten Rolfes", "Birthe Neumann"],
+        c1: "Birgitte Raaberg",
+        q2: "Hvad betyder ”Domine et sanctus”?",
+        a2: ["Til døden os skiller", "Livet er langt", "Herre er helllig"],
+        c2: "Herre er helllig"
+    },
+    {
+        name: "What a wonderful world",
+        lesson: "Lektion 1",
+        artist: "Louis Armstrong",
+        url:  `${hosting}New%20Lessons/13%20LESSON.mp3`,
+        cover: `${hosting}img/4.jpg`,
+        q1: "I hvilket år blev What a wonderful world indspillet?",
+        a1: ["1947", "1957", "1967"],
+        c1: "1967",
+        q2: "Hvornår på døgnet er What a wonderful world indspillet?",
+        a2: ["Om eftermiddagen", "Om aftenen", "Om natten"],
+        c2: "Om natten"
+    },
+    {
+        name: "What a wonderful world",
+        lesson: "Lektion 2",
+        artist: "Louis Armstrong",
+        url:  `${hosting}New%20Lessons/14%20LESSON.mp3`,
+        cover: `${hosting}img/4.jpg`,
+        q1: "What a wonderful world er opbygget I en typisk musikalsk form. Hvilken?",
+        a1: ["Jazz-standard", "Popsang", "Salme"],
+        c1: "Popsang",
+        q2: "Hvor lang er What a wonderful world?",
+        a2: ["2:19", "3:19", "4:19"],
+        c2: "2:19"
+    },
+    {
+        name: "What a wonderful world",
+        lesson: "Lektion 3",
+        artist: "Louis Armstrong",
+        url:  `${hosting}New%20Lessons/15%20LESSON.mp3`,
+        cover: `${hosting}img/4.jpg`,
+        q1: "Hvilket instrument spiller melodi sammen med Louis Armstrongs stemme i B-stykket?",
+        a1: ["Klarinet", "Fløjte", "Obo"],
+        c1: "Fløjte",
+        q2: "Hvilket instrument efterligner Louis Armstrong med sin stemme?",
+        a2: ["Trompet", "Violin", "Tuba"],
+        c2: "Trompet"
+    },
 	{
-		name: "Imagine",
-		lesson: "Lektion 1",
-		artist: "John Lenon - 1",
-		url: "https://paisa.dk/TrainingAudio/1-1.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/1.png"
-	},
-	{
-		name: "Imagine",
-		lesson: "Lektion 2",
-		artist: "John Lenon - 1",
-		url: "https://paisa.dk/TrainingAudio/1-2.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/1.png"
-	},
-	{
-		name: "Imagine",
-		lesson: "Lektion 3",
-		artist: "John Lenon - 1",
-		url: "https://paisa.dk/TrainingAudio/1-3.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/1.png"
-	},
-	{
-		name: "Imagine",
+		name: "What a wonderful world",
 		lesson: "Lektion 4",
-		artist: "John Lenon -1",
-		url: "https://paisa.dk/TrainingAudio/1-4.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/1.png"
+		artist: "Louis Armstrong",
+        url:  `${hosting}New%20Lessons/16%20LESSON.mp3`,
+        cover: `${hosting}img/4.jpg`,
+		q1: "Hvilken dansk sanger har indspillet en kendt udgave af What a wonderful world?",
+		a1: ["Niels Hausgaard", "Steffen Brandt", "Bjarne Liller"],
+		c1: "Bjarne Liller",
+		q2: "Hvilken politisk bevægelse blev tæt forbundet med What a wonderful world?",
+		a2: ["Ungdomsoprøret", "Rødstrømpebevægelsen", "FlowerPower-bevægelsen"],
+		c2: "FlowerPower-bevægelsen"
 	},
+	{
+		name: "Over the Rainbow",
+		lesson: "Lektion 1",
+		artist: "Judy Garland",
+        url:  `${hosting}New%20Lessons/17%20LESSON.mp3`,
+        cover: `${hosting}img/5.jpg`,
+		q1: "Hvilken film er Over the rainbow skrevet til?",
+		a1: ["The sound of music", "The Wizard of Oz", "Charlie og chokoladefabrikken"],
+		c1: "The Wizard of Oz",
+		q2: "Hvor kommer sangeren Israel Kamakawiwo'ole fra?",
+		a2: ["Hawaii", "Ghana", "Finland"],
+		c2: "Hawaii"
+	},
+	{
+		name: "Over the Rainbow",
+		lesson: "Lektion 2",
+		artist: "Judy Garland",
+        url:  `${hosting}New%20Lessons/18%20LESSON.mp3`,
+        cover: `${hosting}img/5.jpg`,
+		q1: "Hvilken form har Over the rainbow?",
+		a1: ["Typisk pop-form", "Typisk Jazz-form", "Typisk Salme-form"],
+		c1: "Typisk Jazz-form",
+		q2: "Hvad slutter Over the rainbow med?",
+		a2: ["En variation af A-stykket?", "En variation af B-stykket", "Et nyt stykke"],
+		c2: "En variation af A-stykket"
+	},
+	{
+		name: "Over the Rainbow",
+		lesson: "Lektion 3",
+		artist: "Judy Garland",
+        url:  `${hosting}New%20Lessons/19%20LESSON.mp3`,
+        cover: `${hosting}img/5.jpg`,
+		q1: "Hvilken slags ensemble spiller på Over the rainbow?",
+		a1: ["Jazzband", "Rockband", "Symfoniorkester"],
+		c1: "Symfoniorkester",
+		q2: "Hvilket instrument spiller dybe toner sammen med melodien i b-stykket?",
+		a2: ["Klarinet", "Fløjte", "Obo"],
+		c2: "Klarinet"
+	},
+	{
+		name: "Over the Rainbow",
+		lesson: "Lektion 4",
+		artist: "Judy Garland",
+        url:  `${hosting}New%20Lessons/20%20LESSON.mp3`,
+        cover: `${hosting}img/5.jpg`,
+		q1: "Hvornår er Over the rainbow med i filmen The Wizard of Oz?",
+		a1: ["I starten", "I midten", "I slutningen"],
+		c1: "I starten",
+		q2: "Hvad er melodien i b-stykket inspireret af?",
+		a2: ["Sang-øvelser", "Klaver-øvelser", "Fuglesang"],
+		c2: "Klaver-øvelser"
+	},
+	{
+		name: "Stayin' Alive",
+		lesson: "Lektion 1",
+		artist: "Bee Gees",
+        url:  `${hosting}New%20Lessons/21%20LESSON.mp3`,
+        cover: `${hosting}img/6.jpg`,
+		q1: "Hvor lang er originaludgaven af Stayin’ Alive – den der er med i filmen Saturday Night Fever?",
+		a1: ["1:30", "2:30", "3:30"],
+		c1: "1:30",
+		q2: "Hvem spiller hovedrollen som Tony Manero i filmen Saturday Night Fever?",
+		a2: ["Dustin Hofmann", "Jack Nicholson", "John Travolta"],
+		c2: "John Travolta"
+	},
+	{
+		name: "Stayin' Alive",
+		lesson: "Lektion 2",
+		artist: "Bee Gees",
+        url:  `${hosting}New%20Lessons/22%20LESSON.mp3`,
+        cover: `${hosting}img/6.jpg`,
+		q1: "Hvordan er Stayin’ Alive opbygget?",
+		a1: ["Som en typisk salme", "Som en typisk pop-sang", "Som en typisk jazz-sang"],
+		c1: "Som en typisk pop-sang",
+		q2: "I hvilke to vers er teksten identisk i Stayin’ Alive?",
+		a2: ["Første og andet vers", "Andet og tredje vers", "Første og tredje vers"],
+		c2: "Første og tredje vers"
+	},
+	{
+		name: "Stayin' Alive",
+		lesson: "Lektion 3",
+		artist: "Bee Gees",
+        url:  `${hosting}New%20Lessons/23%20LESSON.mp3`,
+        cover: `${hosting}img/6.jpg`,
+		q1: "Hvordan er trommerne til Stayin’ Alive lavet?",
+		a1: ["Med en trommemaskine", "Med en båndsløjfe", "Med en trommeslager der spiller hele sangen igennem"],
+		c1: "Med en båndsløjfe",
+		q2: "Hvilke instrumenter svarer sangerne når de synger ”ha ha ha ha”?",
+		a2: ["Blæserne", "Strygerne", "Guitaren"],
+		c2: "Strygerne"
+	},
+	{
+		name: "Stayin' Alive",
+		lesson: "Lektion 4",
+		artist: "Bee Gees",
+        url:  `${hosting}New%20Lessons/24%20LESSON.mp3`,
+        cover: `${hosting}img/6.jpg`,
+		q1: "Hvilken by handler Stayin’ Alive om?",
+		a1: ["Los Angeles", "Chicago", "New York"],
+		c1: "New York",
+		q2: "I hvilken del af sangen bliver der opbygget en spænding?",
+		a2: ["I versene", "I B-stykkerne", "I omkvædene"],
+		c2: "I B-stykkerne"
+	}
+];
 	
-	{
-		name: "Forårsdag",
-		lesson: "Lektion 1",
-		artist: "Anne Linnet - 2",
-		url: "https://paisa.dk/TrainingAudio/2-1.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/2.png"
-	},
-	{
-		name: "Forårsdag",
-		lesson: "Lektion 2",
-		artist: "Anne Linnet - 2",
-		url: "https://paisa.dk/TrainingAudio/2-2.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/2.png"
-	},
-	{
-		name: "Forårsdag",
-		lesson: "Lektion 3",
-		artist: "Anne Linnet - 2",
-		url: "https://paisa.dk/TrainingAudio/2-3.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/2.png"
-	},
-	{
-		name: "Forårsdag",
-		lesson: "Lektion 4",
-		artist: "Anne Linnet - 2",
-		url: "https://paisa.dk/TrainingAudio/2-4.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/2.png"
-	},
-	{
-		name: "Papirsklip",
-		lesson: "Lektion 1",
-		artist: "Kim Larsen - 3",
-		url: "https://paisa.dk/TrainingAudio/3-1.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/3.png"
-	},
-	{
-		name: "Papirsklip",
-		lesson: "Lektion 2",
-		artist: "Kim Larsen - 3",
-		url: "https://paisa.dk/TrainingAudio/3-2.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/3.png"
-	},
-	{
-		name: "Papirsklip",
-		lesson: "Lektion 3",
-		artist: "Kim Larsen - 3",
-		url: "https://paisa.dk/TrainingAudio/3-3.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/3.png"
-	},
-	{
-		name: "Papirsklip",
-		lesson: "Lektion 4",
-		artist: "Kim Larsen - 3",
-		url: "https://paisa.dk/TrainingAudio/3-4.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/3.png"
-	},
-	{
-		name: "What a wonderful World",
-		lesson: "Lektion 1",
-		artist: "Louis Armstrong",
-		url: "https://paisa.dk/TrainingAudio/4-1.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/4.png"
-	},
-	{
-		name: "What a wonderful World",
-		lesson: "Lektion 2",
-		artist: "Louis Armstrong",
-		url: "https://paisa.dk/TrainingAudio/4-2.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/4.png"
-	},
-	{
-		name: "What a wonderful World",
-		lesson: "Lektion 3",
-		artist: "Louis Armstrong",
-		url: "https://paisa.dk/TrainingAudio/4-3.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/4.png"
-	},
-	{
-		name: "What a wonderful World",
-		lesson: "Lektion 4",
-		artist: "Louis Armstrong",
-		url: "https://paisa.dk/TrainingAudio/4-4.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/4.png"
-	},
-]
-export const audioData_Normal = [
-	{
-		name: "Imagine",
-		lesson: "Lektion 1",
-		artist: "John Lenon - 1",
-		url: "https://paisa.dk/TrainingAudio/Normal/1-1.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/1.png"
-	},
-	{
-		name: "Imagine",
-		lesson: "Lektion 2",
-		artist: "John Lenon - 1",
-		url: "https://paisa.dk/TrainingAudio/Normal/1-2.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/1.png"
-	},
-	{
-		name: "Imagine",
-		lesson: "Lektion 3",
-		artist: "John Lenon - 1",
-		url: "https://paisa.dk/TrainingAudio/Normal/1-3.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/1.png"
-	},
-	{
-		name: "Imagine",
-		lesson: "Lektion 4",
-		artist: "John Lenon -1",
-		url: "https://paisa.dk/TrainingAudio/Normal/1-4.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/1.png"
-	},
-	
-	{
-		name: "Forårsdag",
-		lesson: "Lektion 1",
-		artist: "Anne Linnet - 2",
-		url: "https://paisa.dk/TrainingAudio/Normal/2-1.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/2.png"
-	},
-	{
-		name: "Forårsdag",
-		lesson: "Lektion 2",
-		artist: "Anne Linnet - 2",
-		url: "https://paisa.dk/TrainingAudio/Normal/2-2.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/2.png"
-	},
-	{
-		name: "Forårsdag",
-		lesson: "Lektion 3",
-		artist: "Anne Linnet - 2",
-		url: "https://paisa.dk/TrainingAudio/Normal/2-3.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/2.png"
-	},
-	{
-		name: "Forårsdag",
-		lesson: "Lektion 4",
-		artist: "Anne Linnet - 2",
-		url: "https://paisa.dk/TrainingAudio/Normal/2-4.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/2.png"
-	},
-	{
-		name: "Papirsklip",
-		lesson: "Lektion 1",
-		artist: "Kim Larsen - 3",
-		url: "https://paisa.dk/TrainingAudio/Normal/3-1.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/3.png"
-	},
-	{
-		name: "Papirsklip",
-		lesson: "Lektion 2",
-		artist: "Kim Larsen - 3",
-		url: "https://paisa.dk/TrainingAudio/Normal/3-2.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/3.png"
-	},
-	{
-		name: "Papirsklip",
-		lesson: "Lektion 3",
-		artist: "Kim Larsen - 3",
-		url: "https://paisa.dk/TrainingAudio/Normal/3-3.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/3.png"
-	},
-	{
-		name: "Papirsklip",
-		lesson: "Lektion 4",
-		artist: "Kim Larsen - 3",
-		url: "https://paisa.dk/TrainingAudio/Normal/3-4.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/3.png"
-	},
-	{
-		name: "What a wonderful world",
-		lesson: "Lektion 1",
-		artist: "Louis Armstrong",
-		url: "https://paisa.dk/TrainingAudio/Normal/4-1.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/4.png"
-	},
-	{
-		name: "What a wonderful world",
-		lesson: "Lektion 2",
-		artist: "Louis Armstrong",
-		url: "https://paisa.dk/TrainingAudio/Normal/4-2.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/4.png"
-	},
-	{
-		name: "What a wonderful world",
-		lesson: "Lektion 3",
-		artist: "Louis Armstrong",
-		url: "https://paisa.dk/TrainingAudio/Normal/4-3.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/4.png"
-	},
-	{
-		name: "What a wonderful world",
-		lesson: "Lektion 4",
-		artist: "Louis Armstrong",
-		url: "https://paisa.dk/TrainingAudio/Normal/4-4.mp3",
-		cover: "https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/4.png"
-	},
-]

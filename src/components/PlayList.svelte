@@ -1,5 +1,5 @@
 <script>
-	import { audioData, audioData_Normal } from '../audioData.js';
+	import { audioData} from '../audioData.js';
 	import {tactileUsers } from "../stores/userList.js"
 	import { browser } from '$app/environment';
 	let listIsShowing = false;
@@ -16,8 +16,10 @@
 }
 
 	export let song = 0;
-
-	let truncAudioData;
+	let truncAudioData = audioData.slice(song, song + 4);
+	/*
+	// This is for Tactile and non-tactike users
+	let truncAudioData = audioData_Normal.slice(song, song + 4);;
 	if (tactileUsers.includes(usr)) {
   		truncAudioData = audioData.slice(song, song + 4);
 		console.log("Playlist loaded for the tactile group");
@@ -25,6 +27,7 @@
   		truncAudioData = audioData_Normal.slice(song, song + 4);
 		console.log("Normal playlist loade");
 	}
+	*/
 	// = audioData.slice(song, song + 4);
 	//console.log(truncAudioData);
 	

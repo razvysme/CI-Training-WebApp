@@ -28,7 +28,8 @@ export const logVisit = async (Animal=usr) => {
 export const logSession = async (Track, Lesson, S_Length = 0) => {
     //console.log("Session Started");
     let Animal = usr;
-    const{data, error} = await supabase.from("TrainingLog").insert([{Animal, Track, Lesson, S_Length}]).select();
+    let Completed = false;
+    const{data, error} = await supabase.from("TrainingLog").insert([{Animal, Track, Lesson, S_Length, Completed}]).select();
     id = data[0].id;
     //console.log("id is " + id);
     newID = id;
@@ -57,3 +58,24 @@ export const logCompleted = async (Completed = true) => {
         return console.error(error);
     }
 }
+
+export const logAnswers = async (user, trackNr, lessonNr, questionNr, answer) => {
+    // Insert a new record into the "AnswersLog" table
+    const { data, error } = await supabase.from("TrainingLog").insert([
+        {
+            Animal: user,
+            Track: trackNr,
+            Lesson: lessonNr,
+            Question: questionNr,
+            Answer: answer
+        }
+    ]);
+    console.log("loggin to suppaBase: " + user + Track + Lesson + Question, + answer);
+    if (error) {
+        console.error("Error inserting answers: ", error);
+        return error;
+    } else {
+        console.log("Answers logged successfully: ", data);
+        return data;
+    }
+};
