@@ -60,20 +60,17 @@
 		trackArtist = audioDB[trackIndex].artist;
 		coverArt = audioDB[trackIndex].cover;
 
-		q1 = audioDB[trackIndex].q1;
-  		q2 = audioDB[trackIndex].q2;
+		// q1 = audioDB[trackIndex].q1;
+  		// q2 = audioDB[trackIndex].q2;
 
-		a1 = audioDB[trackIndex].a1.map((answer, index) => ({
-   			 value: (index).toString(), label: answer}));
+		// a1 = audioDB[trackIndex].a1.map((answer, index) => ({
+   		//	 value: (index).toString(), label: answer}));
 
-		a2 = audioDB[trackIndex].a2.map((answer, index) => ({
-				value: (index).toString(), label: answer}));
-		radioOpt1 = a1[0].value;
-		radioOpt2 = a2[0].value;
+		// a2 = audioDB[trackIndex].a2.map((answer, index) => ({
+		//		value: (index).toString(), label: answer}));
+		//radioOpt1 = a1[0].value;
+		//radioOpt2 = a2[0].value;
 	}
-	
-
-
 
 	const loadTrack = () => {
 		console.log(trackIndex);
@@ -229,6 +226,17 @@
 	let logged = false;
 	async function checkAudioProgress() {clearInterval(checkProgressInterval); // Clear any existing intervals
 	
+	q1 = audioDB[trackIndex].q1;
+	q2 = audioDB[trackIndex].q2;
+
+	a1 = audioDB[trackIndex].a1.map((answer, index) => ({
+			value: (index).toString(), label: answer}));
+
+	a2 = audioDB[trackIndex].a2.map((answer, index) => ({
+			value: (index).toString(), label: answer}));
+	radioOpt1 = a1[0].value;
+	radioOpt2 = a2[0].value;
+
 		checkProgressInterval = setInterval(async () => {
 			// Check if audioFile is playing
 			if (!audioFile.paused) {
