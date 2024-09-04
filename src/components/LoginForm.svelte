@@ -21,7 +21,7 @@
 <form class="my-11 " on:submit|preventDefault={handleSubmit}>
     <div class="flex flex-col text-lg mb-2">
         <h3 class="font-bold mb-3 text-left text-cr text-gray-700">Først skal vi vide lidt om dig</h3>
-        <input type="text" bind:value={usr} name="todo" placeholder="Skriv dit dyr her" 
+        <input type="text" bind:value={usr} name="todo" placeholder="Skriv dit telefonnummer her" 
             class="appearance-none shadow-sm border border-gray-200 p-2 
             focus:outline-none focus:border-gray-500 rounded-lg"/>
     </div>
