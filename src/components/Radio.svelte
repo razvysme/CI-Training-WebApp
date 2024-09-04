@@ -7,7 +7,9 @@
     export let legend;
     export let userSelected = options[0].value;
     export let fontSize = 16;
-    export let flexDirection = 'column'
+    export let flexDirection = 'column';
+    export let correctAnswer = ''; 
+    export let showAnswers = false;
       
     const uniqueGroupID = Math.random().toString(36).substring(2, 15);
   
@@ -30,7 +32,9 @@
       name={uniqueGroupID}
       bind:group={userSelected}
       value={value} />
-    <label for={slugify(label) + uniqueGroupID}> {label} </label>
+    <label for={slugify(label) + uniqueGroupID} class={showAnswers && label === correctAnswer ? 'highlight-green' : ''}>
+      {label}
+    </label>
   {/each}
 </div>
   
@@ -146,6 +150,18 @@
       box-shadow: 0 0px 8px var(--accent-color, #282828);
       border-radius: 50%;
     }
+
+    .highlight-green {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(40, 154, 20, 0.3); 
+      border-radius: 0.4em; 
+      z-index: 1; 
+  }
   
   </style>
   

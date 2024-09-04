@@ -1,4 +1,3 @@
-import { writable } from 'svelte/store';
 import {supabase} from '../supabase.js';
 import { browser } from '$app/environment';
 
