@@ -63,17 +63,6 @@
 		trackTitle = audioDB[trackIndex].name;
 		trackArtist = audioDB[trackIndex].artist;
 		coverArt = audioDB[trackIndex].cover;
-
-		// q1 = audioDB[trackIndex].q1;
-  		// q2 = audioDB[trackIndex].q2;
-
-		// a1 = audioDB[trackIndex].a1.map((answer, index) => ({
-   		//	 value: (index).toString(), label: answer}));
-
-		// a2 = audioDB[trackIndex].a2.map((answer, index) => ({
-		//		value: (index).toString(), label: answer}));
-		//radioOpt1 = a1[0].value;
-		//radioOpt2 = a2[0].value;
 	}
 
 	const loadTrack = () => {
@@ -194,20 +183,21 @@
 		goto("/Selection");
 	}
 
-	function submit(answer_1, answer_2)
-	{
+	function submit(answer_1, answer_2) {
 		listenMatrix[trackNr][lessonIndex] = 1;
 		const listenMatrixString = JSON.stringify(listenMatrix);
+
 		if (browser) {
-			document.cookie = `listenLog=${encodeURIComponent(listenMatrixString)}; max-age=31536000;path="/"`;
-		};
-		
+			document.cookie = `listenLog=${encodeURIComponent(listenMatrixString)}; max-age=31536000; path="/"`;
+		}
+
 		logAnswers(usr, trackNr, lessonIndex, "0", answer_1);
 		logAnswers(usr, trackNr, lessonIndex, "1", answer_2);
 		audioFile.pause();
 		showAnswers = true;
-		//goto("/Selection");
 	}
+
+
 
 	function getTrackNumber(number) {
 		if (number >= 0 && number <= 3) {
@@ -234,46 +224,46 @@
 	async function checkAudioProgress() 
 	{
 		clearInterval(checkProgressInterval); // Clear any existing intervals
+		q1 = audioDB[trackIndex].q1;
+		q2 = audioDB[trackIndex].q2;
+
+		a1 = audioDB[trackIndex].a1.map((answer, index) => ({
+			value: (index).toString(), label: answer}));
+
+		a2 = audioDB[trackIndex].a2.map((answer, index) => ({
+			value: (index).toString(), label: answer}));
+		
+		correctAnswer1 = audioDB[trackIndex].c1;
+		correctAnswer2 = audioDB[trackIndex].c2;
+
+		radioOpt1 = a1[0].value;
+		radioOpt2 = a2[0].value;
+
 		checkProgressInterval = setInterval(async () => 
 		{
 				// Check if audioFile is playing
-				if (!audioFile.paused) {
-					const currentTime = audioFile.currentTime;
-					const totalDuration = audioFile.duration;
-					if (logged){
-						logUpdateSession(currentTime);
-					}
-
-					if(!logged){
-						logSession(trackNr, lessonIndex, 0);
-						logged = true;
-					}
-					
-				// Check if audio has played over 75% of its length
-					if ((currentTime / totalDuration) > 0.1) {
-						console.log("Audio has passed 95% of its length!" + trackNr + " " + lessonIndex);
-						logCompleted(true);
-						listened = true;
-						clearInterval(checkProgressInterval); // Stop checking progress until a sound starts again
-					}
+			if (!audioFile.paused) {
+				const currentTime = audioFile.currentTime;
+				const totalDuration = audioFile.duration;
+				if (logged){
+					logUpdateSession(currentTime);
 				}
-			}, 5000); // Check every 5 seconds
+
+				if(!logged){
+					logSession(trackNr, lessonIndex, 0);
+					logged = true;
+				}
+				
+			// Check if audio has played over 98% of its length
+				if ((currentTime / totalDuration) > 0.99) {
+					console.log("Audio has passed 99% of its length!" + trackNr + " " + lessonIndex);
+					logCompleted(true);
+					listened = true;
+					clearInterval(checkProgressInterval); // Stop checking progress until a sound starts again
+				}
+			}
+		}, 5000); // Check every 5 seconds
 	}
-	q1 = audioDB[trackIndex].q1;
-	q2 = audioDB[trackIndex].q2;
-
-	a1 = audioDB[trackIndex].a1.map((answer, index) => ({
-		value: (index).toString(), label: answer}));
-
-	a2 = audioDB[trackIndex].a2.map((answer, index) => ({
-		value: (index).toString(), label: answer}));
-	
-	correctAnswer1 = audioDB[trackIndex].c1;
-	correctAnswer2 = audioDB[trackIndex].c2;
-
-	radioOpt1 = a1[0].value;
-	radioOpt2 = a2[0].value;
-	
 </script>
 
 <style>
@@ -285,93 +275,138 @@
 
 <main>
 	<section id="player-cont">
-		<!--- && listenMatrix[trackNr][lessonIndex] == 0 -->
-		{#if listened}
-			<div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-				<!-- Title for clarity -->
-				<p style="font-size: 1.5rem; margin-bottom: 1rem;">Question Time!</p>
-			
-				<!-- First Radio Group -->
-				<div style="width: 100%; margin-bottom: 1rem;">
-				<Radio 
-					options={a1} 
-					fontSize={16} 
-					legend={q1}
-					correctAnswer={correctAnswer1} 
-					showAnswers={showAnswers}  
-					bind:userSelected={radioOpt1}
-				/>
-				</div>
-				<p style="margin-top: 0.5rem;"></p>
-			
-				<!-- Second Radio Group -->
-				<div style="width: 100%; margin-bottom: 1rem;">
-				<Radio 
-					options={a2} 
-					fontSize={16} 
-					legend={q2} 
-					correctAnswer={correctAnswer2} 
-					showAnswers={showAnswers}  
-					bind:userSelected={radioOpt2}
-				/>
-				</div>
-				<p style="margin-top: 0.5rem;"></p>
-			</div>
-			  
-    	{:else}
-      		<div style="display: flex; justify-content: center; align-items: center;">
-        		<img src={coverArt} alt="Cover Art" style="width: 75%; height: 75%; border-radius: 8px;" />
-      		</div>
-			<TrackHeading artist={trackArtist} trackTitle={trackTitle} />
-			<Controls {isPlaying} 
-								on:rewind={rewindAudio}
-								on:playPause={playPauseAudio}
-								on:forward={forwardAudio} />
-
-			<ProgressBarTime 	{currTimeDisplay}
-								{totalTimeDisplay}
-								{progress} />
-    	{/if}
+	  {#if showAnswers}
+		<!-- State 3: Answer Shown (questions with answers visible) -->
+		<div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+		  <!-- Title for clarity -->
+		  <p style="font-size: 1.5rem; margin-bottom: 1rem;">Answers Shown</p>
+  
+		  <!-- First Radio Group with answers shown -->
+		  <div style="width: 100%; margin-bottom: 1rem;">
+			<Radio
+			  options={a1}
+			  fontSize={16}
+			  legend={q1}
+			  correctAnswer={correctAnswer1}
+			  showAnswers={true}
+			  bind:userSelected={radioOpt1}
+			/>
+		  </div>
+		  <p style="margin-top: 0.5rem;"></p>
+  
+		  <!-- Second Radio Group with answers shown -->
+		  <div style="width: 100%; margin-bottom: 1rem;">
+			<Radio
+			  options={a2}
+			  fontSize={16}
+			  legend={q2}
+			  correctAnswer={correctAnswer2}
+			  showAnswers={true}
+			  bind:userSelected={radioOpt2}
+			/>
+		  </div>
+		  <p style="margin-top: 0.5rem;"></p>
+		</div>
+	  {:else if !listened}
+		<!-- State 1: Playing (media controls, playlist, and song cover) -->
+		<div style="display: flex; justify-content: center; align-items: center;">
+		  <img src={coverArt} alt="Cover Art" style="width: 75%; height: 75%; border-radius: 8px;" />
+		</div>
+		<TrackHeading artist={trackArtist} trackTitle={trackTitle} />
+		<Controls {isPlaying}
+				  on:rewind={rewindAudio}
+				  on:playPause={playPauseAudio}
+				  on:forward={forwardAudio} />
+		<ProgressBarTime {currTimeDisplay}
+						 {totalTimeDisplay}
+						 {progress} />
+	  {:else if listenMatrix[trackNr][lessonIndex] == 0}
+		<!-- State 2: Questions (radio buttons, Tilbage button, and Submit button) -->
+		<div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+		  <!-- Title for clarity -->
+		  <p style="font-size: 1.5rem; margin-bottom: 1rem;">Question Time!</p>
+  
+		  <!-- First Radio Group -->
+		  <div style="width: 100%; margin-bottom: 1rem;">
+			<Radio
+			  options={a1}
+			  fontSize={16}
+			  legend={q1}
+			  correctAnswer={correctAnswer1}
+			  showAnswers={false}
+			  bind:userSelected={radioOpt1}
+			/>
+		  </div>
+		  <p style="margin-top: 0.5rem;"></p>
+  
+		  <!-- Second Radio Group -->
+		  <div style="width: 100%; margin-bottom: 1rem;">
+			<Radio
+			  options={a2}
+			  fontSize={16}
+			  legend={q2}
+			  correctAnswer={correctAnswer2}
+			  showAnswers={false}
+			  bind:userSelected={radioOpt2}
+			/>
+		  </div>
+		  <p style="margin-top: 0.5rem;"></p>
+		</div>
+	  {:else}
+		<!-- State 4: Display cover art and controls again if the question has been answered -->
+		<div style="display: flex; justify-content: center; align-items: center;">
+		  <img src={coverArt} alt="Cover Art" style="width: 75%; height: 75%; border-radius: 8px;" />
+		</div>
+		<TrackHeading artist={trackArtist} trackTitle={trackTitle} />
+		<Controls {isPlaying}
+				  on:rewind={rewindAudio}
+				  on:playPause={playPauseAudio}
+				  on:forward={forwardAudio} />
+		<ProgressBarTime {currTimeDisplay}
+						 {totalTimeDisplay}
+						 {progress} />
+	  {/if}
 	</section>
-	
+  
 	<div class="flex justify-between items-start self-start space-x-2">
-		{#if showAnswers}
-		  <!-- Show only 'Tilbage' button when showAnswers is true -->
+	  {#if showAnswers}
+		<!-- Show only 'Tilbage' button when showAnswers is true -->
+		<button
+		  type="button"
+		  class="w-full shadow-sm rounded bg-sky-500 hover:bg-sky-600 text-lg text-white py-1 px-4 custom-padding"
+		  on:click={goBack}
+		>
+		  Tilbage
+		</button>
+	  {:else}
+		<!-- Show both buttons or dynamic content when showAnswers is false -->
+		<button
+		  type="button"
+		  class="shadow-sm rounded bg-sky-500 hover:bg-sky-600 text-lg text-white py-1 px-4 custom-padding"
+		  on:click={goBack}
+		>
+		  Tilbage
+		</button>
+		{#if listened && listenMatrix[trackNr][lessonIndex] == 0}
+		  <!-- Submit button shown if listened is true and in the question state -->
 		  <button
 			type="button"
-			class="w-full shadow-sm rounded bg-sky-500 hover:bg-sky-600 text-lg text-white py-1 px-4 custom-padding"
-			on:click={goBack}
+			class="flex-1 shadow-sm rounded bg-orange-500 hover:bg-orange-600 text-lg text-white py-1 px-4 custom-padding"
+			on:click={() => submit(radioOpt1, radioOpt2)}
 		  >
-			Tilbage
+			Submit
 		  </button>
 		{:else}
-		  <!-- Show both buttons or dynamic content when showAnswers is false -->
-		  <button
-			type="button"
-			class="shadow-sm rounded bg-sky-500 hover:bg-sky-600 text-lg text-white py-1 px-4 custom-padding"
-			on:click={goBack}
-		  >
-			Tilbage
-		  </button>
-		  {#if listened}
-			<!-- Submit button shown if listened is true -->
-			<button
-			  type="button"
-			  class="flex-1 shadow-sm rounded bg-orange-500 hover:bg-orange-600 text-lg text-white py-1 px-4 custom-padding"
-			  on:click={() => submit(radioOpt1, radioOpt2)}
-			>
-			  Submit
-			</button>
-		  {:else}
-			<!-- Playlist component shown if listened is false -->
-			<div class="flex-1">
-			  <PlayList song={trackIndex} on:click={handleTrack} />
-			</div>
-		  {/if}
+		  <!-- Playlist component shown if not in the question state -->
+		  <div class="flex-1">
+			<PlayList song={trackIndex} on:click={handleTrack} />
+		  </div>
 		{/if}
-	  </div>
-	  
-</main>
-
+	  {/if}
+	</div>
+  </main>
+  
+  
+  
 
 

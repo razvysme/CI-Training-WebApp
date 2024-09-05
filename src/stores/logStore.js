@@ -69,7 +69,6 @@ export const logAnswers = async (user, trackNr, lessonNr, questionNr, answer) =>
             Answer: answer
         }
     ]);
-    console.log("loggin to suppaBase: " + user + Track + Lesson + Question, + answer);
     if (error) {
         console.error("Error inserting answers: ", error);
         return error;
