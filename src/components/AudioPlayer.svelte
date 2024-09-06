@@ -57,7 +57,6 @@
 		}
 		*/
 
-
 		console.log("Track Index is: "+ trackIndex);
 		audioFile = new Audio(audioDB[trackIndex].url);
 		trackTitle = audioDB[trackIndex].name;
@@ -161,6 +160,7 @@
 	// Playlist
 	const staticTrackIndex = trackIndex;
 	let lessonIndex = 0;
+
 	const handleTrack = (e) => {
 		if (!isPlaying) {
 			lessonIndex = Number(e.target.dataset.trackId);
@@ -183,6 +183,10 @@
 		goto("/Selection");
 	}
 
+	function isTestCompleted(listenMatrix) {
+    return listenMatrix.every(row => row.every(item => item === 1));
+}
+
 	function submit(answer_1, answer_2) {
 		listenMatrix[trackNr][lessonIndex] = 1;
 		const listenMatrixString = JSON.stringify(listenMatrix);
@@ -194,7 +198,13 @@
 		logAnswers(usr, trackNr, lessonIndex, "0", answer_1);
 		logAnswers(usr, trackNr, lessonIndex, "1", answer_2);
 		audioFile.pause();
-		showAnswers = true;
+		
+		if (!isTestCompleted(listenMatrix)) {
+			console.log(isTestCompleted(listenMatrix));
+			showAnswers = true;
+		} else {
+			goto("/Finish");
+		}
 	}
 
 

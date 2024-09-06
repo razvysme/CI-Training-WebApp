@@ -10,7 +10,7 @@
     let audioFile;
 
     if (browser) {
-     audioFile = new Audio("https://d3spngajmc7mtz.cloudfront.net/Chimes.mp3");
+     audioFile = new Audio("https://d3spngajmc7mtz.cloudfront.net/00+QUIZ.mp3");
     }
 
     function playTestAudio() 
@@ -34,7 +34,7 @@
 
 <form class="my-11 " on:submit|preventDefault={handleSubmit}>
     <div class="flex flex-col text-lg">
-        <h3 class="font-bold mb-2 text-center text-2xl text-gray-700">Velkomme til siden for fores træningsprogram</h3>
+        <h3 class="font-bold mb-2 text-center text-2xl text-gray-700">Lydtest</h3>
         
         <h1 class="mb-4 text-gray-700 text-lg text-justify"> Du er velkommen til at lytte til træningen som du vil – på din computer, telefon eller tablet – og ved at streame eller gennem den indbyggede højtaler. Inden du går videre, har du her muligheden for at tjekke at lyden virker.</h1>
         <h1 class="mb-2 text-gray-500 text-base text-left">Hvis ikke, så følg disse trin for at få lyden til at fungere:</h1>

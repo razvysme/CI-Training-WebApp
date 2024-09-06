@@ -11,9 +11,10 @@
 <main>
   {#if !usr}
     <LoginForm />
-    {:else}
-   {goto('/AudioTest')}
+  {:else}
+    {goto('/AudioTest')}
   {/if}
 </main>
+
 
 
