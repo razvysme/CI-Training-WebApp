@@ -6,7 +6,7 @@
 
     const animal = "Torsk2";
     if (browser) {
-     audioFile = new Audio("https://d3spngajmc7mtz.cloudfront.net/Chimes.mp3");
+     audioFile = new Audio("https://d3spngajmc7mtz.cloudfront.net/00+QUIZ.mp3");
     }
 
     function startQuiz() {
@@ -18,12 +18,10 @@
     }
 
     const handleSubmit = () => {
-        //addUsr(usr);
-        //console.log(usr)
-        //usr='';
         if (browser) {
             document.cookie = `usr=${usr};max-age=31536000;path="/"`;
             };
+            audioFile.pause();
         goto('/AudioTest');
     } 
 </script>

@@ -10,24 +10,20 @@
     let audioFile;
 
     if (browser) {
-     audioFile = new Audio("https://d3spngajmc7mtz.cloudfront.net/00+QUIZ.mp3");
+     audioFile = new Audio("https://d3spngajmc7mtz.cloudfront.net/Chimes.mp3");
     }
 
     function playTestAudio() 
     {
-        //console.log('Playing test audio...');
         audioFile.play();
     }
 
     onMount(() => {
-      playTestAudio(); // Call the function when the component is mounted
+      playTestAudio(); 
       console.log("Mounting test audio...");
     });
 
     const handleSubmit = () => {
-        //addUsr(usr);
-        //console.log(usr)
-        //usr='';
         goto('/Selection');
     };
 </script>
