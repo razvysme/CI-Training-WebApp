@@ -18,8 +18,11 @@
 
 <main>  
     <div class="flex flex-col text-lg mb-1">
-        <h3 class="font-bold mb-3 text-center text-xl text-gray-700">Stor tillykke</h3>
-        <h3 class="font-regular text-justify text-gray-700">You finished the training program FANTASTIC. Now you need to take the test again to tell us how it went </h3>
+        <h3 class="font-bold mb-3 text-center text-3xl text-gray-700">TILLYKKE!</h3>
+        <h3 class="text-2xl text-justify text-gray-700">
+                    Du er nu færdig med hele træningsprogrammet.</h3>
+        <h3 class="mt-3 text-xl text-justify text-gray-700">
+                    Nu er det tid til at tage den quiz, som afslutter hele forløbet.</h3>
         <button  type="button"
                  class="mt-3 mb-11 w-full shadow-sm rounded bg-orange-500 hover:bg-orange-600 text-lg text-white py-2 px-4"
                  on:click={startQuiz}>
