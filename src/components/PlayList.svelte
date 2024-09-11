@@ -38,7 +38,7 @@
 <section id="playlist-cont">
 	<button class="accordion border border-gray-300 p-2 rounded-lg"
 		class:active={listIsShowing}
-		on:click={showPlayList}>&#9776; Lektion List
+		on:click={showPlayList}>&#9776; Lektioner Liste
 	</button>
 
 	<ul class:show-list={listIsShowing}>

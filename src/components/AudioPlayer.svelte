@@ -184,8 +184,16 @@
 	}
 
 	function isTestCompleted(listenMatrix) {
-    return listenMatrix.every(row => row.every(item => item === 1));
-}
+    // Get the last row and the last column element
+    const lastRow = listenMatrix[listenMatrix.length - 1];
+    const lastElement = lastRow[lastRow.length - 1];
+
+	if (trackNr == 5 && lessonIndex == 3)
+    	return lastElement === 1;
+	else
+		return false;
+	}
+s
 
 	function submit(answer_1, answer_2) {
 		listenMatrix[trackNr][lessonIndex] = 1;
@@ -206,8 +214,6 @@
 			goto("/Finish");
 		}
 	}
-
-
 
 	function getTrackNumber(number) {
 		if (number >= 0 && number <= 3) {
@@ -289,7 +295,7 @@
 		<!-- State 3: Answer Shown (questions with answers visible) -->
 		<div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
 		  <!-- Title for clarity -->
-		  <p style="font-size: 1.5rem; margin-bottom: 1rem;">Answers Shown</p>
+		  <p style="font-size: 1.5rem; margin-bottom: 1rem;">Korrekte svar</p>
   
 		  <!-- First Radio Group with answers shown -->
 		  <div style="width: 100%; margin-bottom: 1rem;">
