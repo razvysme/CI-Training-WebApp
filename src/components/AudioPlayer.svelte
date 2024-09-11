@@ -193,7 +193,7 @@
 	else
 		return false;
 	}
-s
+
 
 	function submit(answer_1, answer_2) {
 		listenMatrix[trackNr][lessonIndex] = 1;
