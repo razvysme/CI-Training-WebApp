@@ -11,18 +11,9 @@
 
     function startQuiz() {
         // Open the quiz in a new tab immediately
+        audioFile.play();
         const quizWindow = window.open('https://survey-xact.dk/LinkCollector?key=XJSD7KQLL6C2', '_blank');
-
-        // Play the audio with proper user interaction
-        audioFile.play().then(() => {
-            console.log('Audio started successfully');
-        }).catch(error => {
-            console.log('Error playing audio:', error);
-            
-            // Fallback: Notify the user if autoplay is blocked
-            alert('Please interact with the page to start audio playback.');
-        });
-
+        
         if (!quizWindow || quizWindow.closed || typeof quizWindow.closed == 'undefined') { 
             console.log("Pop-up was blocked.");
         }
