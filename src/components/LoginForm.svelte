@@ -10,25 +10,30 @@
     }
 
     function startQuiz() {
-    // Open the quiz in a new tab immediately, as part of the user's click action
-    const quizWindow = window.open('https://survey-xact.dk/LinkCollector?key=XJSD7KQLL6C2', '_blank');
+        // Open the quiz in a new tab immediately
+        const quizWindow = window.open('https://survey-xact.dk/LinkCollector?key=XJSD7KQLL6C2', '_blank');
 
-    // Play the audio asynchronously
-    audioFile.play().catch(error => {
-        console.error('Error playing audio:', error);
-    });
+        // Play the audio with proper user interaction
+        audioFile.play().then(() => {
+            console.log('Audio started successfully');
+        }).catch(error => {
+            console.log('Error playing audio:', error);
+            
+            // Fallback: Notify the user if autoplay is blocked
+            alert('Please interact with the page to start audio playback.');
+        });
 
-    // Optional: If you want to close the quiz window in case of an audio play error
-    if (!quizWindow || quizWindow.closed || typeof quizWindow.closed == 'undefined') { 
-        console.log("Pop-up was blocked.");
+        if (!quizWindow || quizWindow.closed || typeof quizWindow.closed == 'undefined') { 
+            console.log("Pop-up was blocked.");
+        }
     }
-}
+
 
     const handleSubmit = () => {
         if (browser) {
             document.cookie = `usr=${usr};max-age=31536000;path="/"`;
             };
-            audioFile.pause();
+        audioFile.pause();
         goto('/AudioTest');
     } 
 </script>
