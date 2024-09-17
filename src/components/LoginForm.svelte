@@ -55,12 +55,12 @@
 
     <!-- Conditionally render the manual button if the quiz fails to open in a new tab -->
     {#if showManualButton}
-    <h3 class="font-regular mb-3 text-justify text-cr text-gray-700" >Der ser ud til at være et problem med din browser. Prøv at åbne quizzen manuelt. </h3>
+    <h3 class="font-regular mb-3 text-justify text-cr text-gray-700" >Der ser ud til at være et problem med quiz siden. Prøv at åbne quiz’en manuelt. </h3>
       <button
         type="button"
         class="mt-3 mb-11 w-full shadow-sm rounded bg-green-600 hover:bg-green-700 text-lg text-white py-2 px-4"
         on:click={handleManualQuiz}>
-        Tryk for at åbne quizzen manuelt
+        Åbne quiz side
       </button>
     {/if}
 
