@@ -115,6 +115,7 @@ export const audioData = [
         q1: "I hvilket år blev Papirsklip udgivet?",
         a1: ["1973", "1983", "1993"],
         c1: "1983",
+        q2: "Hvilken kendt sanger har lavet en plade i samme studie, som der hvor Papirsklip er indspillet?",
         cover: `${hosting}img/3.png`,
         a2: ["Billy Joel", "Elton John", "Frank Sinatra"],
         c2: "Elton John"
