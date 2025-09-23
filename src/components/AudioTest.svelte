@@ -10,7 +10,7 @@
     let audioFile;
 
     if (browser) {
-     audioFile = new Audio("https://d3spngajmc7mtz.cloudfront.net/Chimes.mp3");
+     audioFile = new Audio("https://github.com/razvysme/CI-Training-WebApp/raw/refs/heads/main/src/lib/audio/Chimes.mp3");
     }
 
     function playTestAudio() 
@@ -30,18 +30,25 @@
 
 <form class="my-11 " on:submit|preventDefault={handleSubmit}>
     <div class="flex flex-col text-lg">
-        <h3 class="font-bold mb-2 text-center text-2xl text-gray-700">Lydtest</h3>
-        
-        <h1 class="mb-4 text-gray-700 text-lg text-justify"> Du er velkommen til at lytte til træningen som du vil – på din computer, telefon eller tablet – og ved at streame eller gennem den indbyggede højtaler. Inden du går videre, har du her muligheden for at tjekke at lyden virker.</h1>
+        <h3 class="font-bold mb-3 text-left text-cr text-gray-700">Lad os sikre os at lyden virker ved at trykke på <span class="text-gray-1000">Test Lyden</span></h3>
+        <h1 class="mb-4 text-gray-500 text-xl text-center">Hørte du en lyd?</h1>
         <h1 class="mb-2 text-gray-500 text-base text-left">Hvis ikke, så følg disse trin for at få lyden til at fungere:</h1>
-        
-        <ul class="list-disc list-inside ml-4 text-sm text-gray-500">
-          <li>Tjek at dine højttalere eller høretelefoner er tilsluttet korrekt.</li>
-          <li>Hvis du bruger en Cochlearimplant, skal du sørge for, at streaming er slået til.</li>
-          <li>Sørg for, at lydstyrken er skruet op på din enhed.</li>
-          <li>Prøv at genstarte din enhed og forsøg igen.</li>
-        </ul>
-      </div>
+
+        <div class="flex items-center mb-3">
+            <img class="w-24 h-24 rounded-full mr-2" src="https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/SpeakerIcon.png" alt="Speaker Image">
+            <div>
+              <h3 class="mb-0.5 text-gray-800">Tænd højtaleren</h3>
+              <p class="text-gray-500 text-xs">Hold tændknappen i toppen af højtaleren nede i tre sekunder indtil du hører "tændelyden". Hvis du ikke hører noget, er højtaleren formentlig løbet tør for strøm, så tilslut den opladekablet.</p>
+            </div>
+        </div>
+        <div class="flex items-center">
+            <img class="w-24 h-24 rounded-full mr-2" src="https://raw.githubusercontent.com/razvysme/CI-Training-WebApp/main/src/lib/img/BtIcon.png" alt="Speaker Image">
+            <div>
+              <h3 class="mb-0.5 text-gray-800">Forbind med højtaleren</h3>
+              <p class="text-gray-500 text-xs">Gå ind i <span class="font-bold">Indstillinger</span> på din telefon, find <span class="font-bold">Bluetooth</span> og vælg <span class="font-bold">SoundCore 2</span>. Hvis navnet ikke er på listen skal du holde <span class="font-bold">Bluetooth</span> knappen på højtaleren nede indtil højtaleren begynder at blinke. Derefter skal vente indtil den dukker op på listen så du kan vælge den på telefonen.</p>
+            </div>
+        </div>
+    </div>
     <div class="flex justify-between space-x-2">
         <button
           type="button"
@@ -57,8 +64,4 @@
           Fortsæt
         </button>
       </div>
-      <div class="mt-0">
-        <Logos />
-    </div>
-
 </form>
